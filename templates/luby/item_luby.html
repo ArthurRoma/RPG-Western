@@ -1,0 +1,20 @@
+<tr id="luby-{{luby.id}}">
+    <th scope="row">{{luby.id}}</th>
+    <td>{{luby.item}}</td>
+    <td>{{luby.quantidade}}</td>
+    <td>{{luby.descricao}}</td>
+    <td>
+        <button class="btn btn-primary"
+        c-get="{{url_for('luby.form_edit_luby', luby_id=luby.id)}}"
+        c-target="#form-luby"> 
+        Editar
+        </button>
+
+        <button class="btn btn-danger"
+        c-delete="{{url_for('luby.deletar_luby', luby_id=luby.id)}}"
+        c-remove-closest="tr"> 
+        Deletar
+        </button>
+    </td>
+
+</tr>

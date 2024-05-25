@@ -1,0 +1,20 @@
+<tr id="cristian-{{cristian.id}}">
+    <th scope="row">{{cristian.id}}</th>
+    <td>{{cristian.item}}</td>
+    <td>{{cristian.quantidade}}</td>
+    <td>{{cristian.descricao}}</td>
+    <td>
+        <button class="btn btn-primary"
+        c-get="{{url_for('cristian.form_edit_cristian', cristian_id=cristian.id)}}"
+        c-target="#form-cristian"> 
+        Editar
+        </button>
+
+        <button class="btn btn-danger"
+        c-delete="{{url_for('cristian.deletar_cristian', cristian_id=cristian.id)}}"
+        c-remove-closest="tr"> 
+        Deletar
+        </button>
+    </td>
+
+</tr>

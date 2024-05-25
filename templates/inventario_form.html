@@ -1,0 +1,37 @@
+<form class="c-form" 
+  {% if inventario  %}
+    action="{{ url_for('inventario.update_item', inventario_id=inventario.id) }}" 
+  {% else %}
+  action="{{ url_for('inventario.inserir_inventario') }}"
+  {% endif %}
+  
+  method="{% if inventario %}PUT{% else %}POST{% endif %}"
+  
+  {% if inventario %}
+    c-swap="#inventario-{{inventario.id}}"
+  {% else %}
+    c-append="#lista-inventarios"
+  {% endif %}
+
+  c-reload-container = "true">
+
+    <div class="mb-3">
+      <label class="form-label">Item</label>
+      <input type="text" class="form-control" name="item" {% if inventario %}value= "{{inventario.item}}" {% endif %} >
+    </div>
+   
+    <div class="mb-3">
+      <label  class="form-label">Quantidade</label>
+      <input type="text" class="form-control" name="quantidade" {% if inventario %}value= "{{inventario.quantidade}}" {% endif %}>
+    </div>
+
+    <div class="mb-3">
+        <label  class="form-label">Descrição</label>
+        <input type="text" class="form-control" name="descricao" {% if inventario %}value= "{{inventario.descricao}}" {% endif %}>
+      </div>
+    
+   
+   
+    <button type="submit" class="btn btn-primary"> {% if inventario %}Salvar alteração{% else %}Inserir Item{% endif %}
+  </button>
+</form>

@@ -1,0 +1,37 @@
+<form class="c-form" 
+  {% if luby  %}
+    action="{{ url_for('luby.update_luby', luby_id=luby.id) }}" 
+  {% else %}
+  action="{{ url_for('luby.inserir_luby') }}"
+  {% endif %}
+  
+  method="{% if luby %}PUT{% else %}POST{% endif %}"
+  
+  {% if luby %}
+    c-swap="#luby-{{luby.id}}"
+  {% else %}
+    c-append="#lista-lubys"
+  {% endif %}
+
+  c-reload-container = "true">
+
+    <div class="mb-3">
+      <label class="form-label">Item</label>
+      <input type="text" class="form-control" name="item" {% if luby %}value= "{{luby.item}}" {% endif %} >
+    </div>
+   
+    <div class="mb-3">
+      <label  class="form-label">Quantidade</label>
+      <input type="text" class="form-control" name="quantidade" {% if luby %}value= "{{luby.quantidade}}" {% endif %}>
+    </div>
+
+    <div class="mb-3">
+        <label  class="form-label">Descrição</label>
+        <input type="text" class="form-control" name="descricao" {% if luby %}value= "{{luby.descricao}}" {% endif %}>
+      </div>
+    
+   
+   
+    <button type="submit" class="btn btn-primary"> {% if luby %}Salvar alteração{% else %}Inserir Item{% endif %}
+  </button>
+</form>

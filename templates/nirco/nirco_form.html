@@ -1,0 +1,37 @@
+<form class="c-form" 
+  {% if nirco  %}
+    action="{{ url_for('nirco.update_nirco', nirco_id=nirco.id) }}" 
+  {% else %}
+  action="{{ url_for('nirco.inserir_nirco') }}"
+  {% endif %}
+  
+  method="{% if nirco %}PUT{% else %}POST{% endif %}"
+  
+  {% if nirco %}
+    c-swap="#nirco-{{nirco.id}}"
+  {% else %}
+    c-append="#lista-nircos"
+  {% endif %}
+
+  c-reload-container = "true">
+
+    <div class="mb-3">
+      <label class="form-label">Item</label>
+      <input type="text" class="form-control" name="item" {% if nirco %}value= "{{nirco.item}}" {% endif %} >
+    </div>
+   
+    <div class="mb-3">
+      <label  class="form-label">Quantidade</label>
+      <input type="text" class="form-control" name="quantidade" {% if nirco %}value= "{{nirco.quantidade}}" {% endif %}>
+    </div>
+
+    <div class="mb-3">
+        <label  class="form-label">Descrição</label>
+        <input type="text" class="form-control" name="descricao" {% if nirco %}value= "{{nirco.descricao}}" {% endif %}>
+      </div>
+    
+   
+   
+    <button type="submit" class="btn btn-primary"> {% if nirco %}Salvar alteração{% else %}Inserir Item{% endif %}
+  </button>
+</form>

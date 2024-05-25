@@ -1,0 +1,20 @@
+Consegui fazer aparecer o fomúlário, porém, tirei a lista de aparecer.
+Logo, os dados estão indo para o db, como tudo deve ser.
+Só que, não sei o qu fazer pra aparecer a lista no browser. 
+Fica dando erro dol cru.js, algo com essa merda. 
+Talvez tentar criar um link para ir até uma página somente do 
+
+Estava com problema para puxar o index do luby, problema com rota e url_prefix.
+Ai eu coloquei o url_prefix de "inventario" nas duas rotas configuration inventario_route
+e luby_route. E ai no link do luby foi. Não entendi nada dessas url das rotas.
+
+Esquece, não tava puxando a table do luby, e sim a do inventario...
+
+Achei o problema, era que só render_templete("form_luby.html") ele não achava
+tinha que colocar luby/ na frente por causa da pasta...
+
+O include do for no lista_luby não estava puxando o item_luby, o problema também era especificar a pasta do arquivo com luby/item_luby.html...
+
+Criando a nova tabela do cristian, deu erro, puxando no link do cristian no index
+ele puxava o do luby, resolução = foi que tinha que mudar o url da função dos 
+luby_home e cristian_home para "/luby" e "/cristian" na blueprint do inventario.

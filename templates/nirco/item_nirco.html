@@ -1,0 +1,20 @@
+<tr id="nirco-{{nirco.id}}">
+    <th scope="row">{{nirco.id}}</th>
+    <td>{{nirco.item}}</td>
+    <td>{{nirco.quantidade}}</td>
+    <td>{{nirco.descricao}}</td>
+    <td>
+        <button class="btn btn-primary"
+        c-get="{{url_for('nirco.form_edit_nirco', nirco_id=nirco.id)}}"
+        c-target="#form-nirco"> 
+        Editar
+        </button>
+
+        <button class="btn btn-danger"
+        c-delete="{{url_for('nirco.deletar_nirco', nirco_id=nirco.id)}}"
+        c-remove-closest="tr"> 
+        Deletar
+        </button>
+    </td>
+
+</tr>

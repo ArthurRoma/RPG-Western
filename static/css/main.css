@@ -1,0 +1,35 @@
+h1 {
+    text-align: center;
+}
+
+body{
+    background-color: #366;
+}
+
+#luby-link{
+    width: 80px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: larger;
+    margin: auto;
+    text-align: center;
+    text-decoration-color: black;
+    background-color: rgb(255, 255, 255, .3)    /*  10% opaque green */
+    
+
+    
+    
+    
+}
+
+#link{
+    color: black;
+}
+
+body{
+    background-image: url("https://media.filmelier.com/tit/axm0cX/thumb/dead-for-a-dollar_EgGDdCY.jpeg");
+    background-position: center;
+    background-size: cover;
+    background-position-y: top;
+    background-repeat:no-repeat;
+    
+}

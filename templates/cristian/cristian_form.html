@@ -1,0 +1,37 @@
+<form class="c-form" 
+  {% if cristian  %}
+    action="{{ url_for('cristian.update_cristian', cristian_id=cristian.id) }}" 
+  {% else %}
+  action="{{ url_for('cristian.inserir_cristian') }}"
+  {% endif %}
+  
+  method="{% if cristian %}PUT{% else %}POST{% endif %}"
+  
+  {% if cristian %}
+    c-swap="#cristian-{{cristian.id}}"
+  {% else %}
+    c-append="#lista-cristian"
+  {% endif %}
+
+  c-reload-container = "true">
+
+    <div class="mb-3">
+      <label class="form-label">Item</label>
+      <input type="text" class="form-control" name="item" {% if cristian %}value= "{{cristian.item}}" {% endif %} >
+    </div>
+   
+    <div class="mb-3">
+      <label  class="form-label">Quantidade</label>
+      <input type="text" class="form-control" name="quantidade" {% if cristian %}value= "{{cristian.quantidade}}" {% endif %}>
+    </div>
+
+    <div class="mb-3">
+        <label  class="form-label">Descrição</label>
+        <input type="text" class="form-control" name="descricao" {% if cristian %}value= "{{cristian.descricao}}" {% endif %}>
+      </div>
+    
+   
+   
+    <button type="submit" class="btn btn-primary"> {% if cristian %}Salvar alteração{% else %}Inserir Item{% endif %}
+  </button>
+</form>
